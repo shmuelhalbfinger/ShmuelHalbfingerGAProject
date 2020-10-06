@@ -19,14 +19,15 @@ public class Cs381Ga {
     }
 
     public static void partitionExhaustiveSearch(int[] set) {
-        for (int i = 0; i < Math.pow(2, set.length); i++) {
+        for (int i = 0; i < Math.pow(2, set.length)/2; i++) {
             String binary = decimalToBinary(i, set.length);
             System.out.println("Partition check for bitstring: " + binary);
             if (partitionExists(binary, set)) {
                 System.out.println("Partition exists");
-                break;
+                return;
             }
         }
+        System.out.println("No partition exists");
     }
 
     private static boolean partitionExists(String binary, int[] set) {
@@ -41,7 +42,7 @@ public class Cs381Ga {
     }
 
     public static void main(String[] args) {
-	int x = 34;
-	System.out.println(decimalToBinary(x,10));
+	int [] set = {4,56,2,3,4,5};
+	partitionExhaustiveSearch(set);
     }
 }
