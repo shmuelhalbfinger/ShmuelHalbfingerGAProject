@@ -18,10 +18,18 @@ public class Cs381Ga {
         return binary.toString();
     }
 
+    public static int binaryToDecimal(String binary) {
+        int decimal = 0;
+        for (int i = binary.length()-1, j = 0; i >= 0; i--, j++) {
+            decimal += Integer.parseInt(String.valueOf(binary.charAt(i))) * Math.pow(2,j);
+        }
+        return decimal;
+    }
+
     public static void partitionExhaustiveSearch(int[] set) {
         for (int i = 0; i < Math.pow(2, set.length)/2; i++) {
             String binary = decimalToBinary(i, set.length);
-            System.out.println("Partition check for bitstring: " + binary);
+            System.out.println("Partition check for bitstring: " + binary + "= " + binaryToDecimal(binary));
             if (partitionExists(binary, set)) {
                 System.out.println("Partition exists");
                 return;
@@ -37,6 +45,8 @@ public class Cs381Ga {
             if (binary.charAt(i) == '0') sumSubset1 += set[i];
             else if (binary.charAt(i) == '1') sumSubset2 += set[i];
         }
+        System.out.println("sumSubset1 = " + sumSubset1);
+        System.out.println("sumSubset2 = " + sumSubset2);
         return sumSubset1 == sumSubset2;
 
     }
