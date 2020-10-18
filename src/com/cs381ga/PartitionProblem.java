@@ -4,7 +4,7 @@ package com.cs381ga;
 This class will function as a Partition Problem superclass. It will contain methods that will be used by all phases of
 the project.
  */
-public class PartitionProblem {
+public abstract class PartitionProblem {
 
     //Method to convert a decimal number to a binary bitstring.
     public static String decimalToBinary(int decimal, int n) {
@@ -43,6 +43,16 @@ public class PartitionProblem {
         System.out.println("sumSubset1 = " + sumSubset1);
         System.out.println("sumSubset2 = " + sumSubset2);
         return sumSubset1 == sumSubset2;
+    }
 
+    public int subsetSumDifference (String binary, int[] set) {
+        int sumSubset1 = 0;
+        int sumSubset2 = 0;
+        for (int i = 0; i < binary.length(); i++) {
+            if (binary.charAt(i) == '0') sumSubset1 += set[i];
+            else if (binary.charAt(i) == '1') sumSubset2 += set[i];
+        }
+
+        return sumSubset1 - sumSubset2;
     }
 }
