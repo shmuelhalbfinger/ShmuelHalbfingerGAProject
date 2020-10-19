@@ -1,4 +1,4 @@
-Output of Partition Problem with input from Cs381GaInput.txt
+Output of Partition Problem with input from Input and Output Files\Cs381GaInput.txt
 Bitstrings will be used to represent partitioning of element of the set into two subsets, set 0 and set 1
 The sums of the subsets are calculated and compared
 
