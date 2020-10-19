@@ -11,8 +11,10 @@ public class CS381GA {
         String inputFile = scanner.nextLine();
         System.out.println("Enter the path and name of the file to which you would like to write the output");
         String outputFile = scanner.nextLine();
+        System.out.println("Enter the size of the set represented in the input file");
+        int setSize = scanner.nextInt();
         try {
-            partitionProblemSolverBruteForce.solve(inputFile, outputFile, 23);
+            partitionProblemSolverBruteForce.solve(inputFile, outputFile, setSize);
         } catch (IOException e) {
             e.printStackTrace();
         }
